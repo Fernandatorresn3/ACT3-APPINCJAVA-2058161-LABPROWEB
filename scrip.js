@@ -67,7 +67,11 @@ const mostrarActividades = () =>
                 <div class="etiquetasActividad">
                 <span class="dificultad ${actividad.dificultad.toLowerCase()}">${actividad.dificultad}</span>
 
-                <span class="estado ${actividad.estado.toLowerCase().replace("", "-")}">${actividad.estado}</span>
+                
+                <select class="cambiarEstado estado-${actividad.estado.toLowerCase().replace(" ", "-")}" data-id="${actividad.id}">
+                 <option value="Pendiente" ${actividad.estado === "Pendiente" ? "selected" : "" }>Pendiente</option>
+                 <option value="Completada" ${actividad.estado === "Completada" ? "selected" : ""}>Completada</option>
+                </select>
                 </div>
                 </div>
 
@@ -81,17 +85,35 @@ const mostrarActividades = () =>
                 <span>Fecha de entrega:</span>
                 <p>${actividad.fechaEntrega}</p>
                 </div>
+                </div>
 
                 <div class="descripcionActividad">
                 <span>Descripcion:</span>
                 <p>${actividad.descripcion || "Sin descripcion"}</p>
-                </div>
-                
-                
+                </div> 
             </div>
     `).join("");
     }
 };
+
+/* ESTADO DE LA ACTIVIDAD*/
+
+contenedorLista.addEventListener("change", (evento) =>
+{
+    if (evento.target.classList.contains("cambiarEstado"))
+    {
+        const idActividad = Number(evento.target.dataset.id);
+        const nuevoEstado = evento.target.value;
+
+        const actividad = actividades.find((actividad) => actividad.id === idActividad);
+        if (actividad)
+        {
+            actividad.estado = nuevoEstado;
+            mostrarActividades();
+            actualizarResumen();
+        }
+    }
+});
 
 /*ACTUALIZAR CONTADOR*/
 
@@ -140,7 +162,7 @@ actividades.push(nuevaActividad);
 formulario.reset();
 actualizarResumen();
 mostrarActividades();
-mostrarSeccion(listaActividades);
+mostrarSeccion(listaActividades, bActividades);
 
 alert("¡Actividad agregada correctamente!");
 

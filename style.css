@@ -299,6 +299,41 @@ margin-bottom: 12px;
     font-weight: bold;
 }
 
+/* sELECTOR DE ESTADO*/
+
+.cambiarEstado
+{
+    padding: 7px 14px;
+    border: none;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+
+/*ESTADO PENDIENTE*/
+.cambiarEstado.estado-pendiente
+{
+    background-color: #fff0d6;
+    color: #d87513;
+}
+
+.cambiarEstado.estado-completada
+{
+    background-color: #D9F5E3;
+    color: #218A49;
+}
+
+/*OPCION DE SELECTOR*/
+
+.cambiarEstado option
+{
+    background-color: #FFFFFF;
+    color: #25364a;
+}
+
+
 /*COLOR DE LAS DIFICULTADES*/
 
 .dificultad.facil
@@ -317,26 +352,6 @@ margin-bottom: 12px;
 {
     background-color: #FCE0E0;
     color: #C03939;
-}
-
-/*COLOR DE LOS ESTADOS*/
-
-.estado.pendiente
-{
-    background-color: #FFF0D6;
-    color: #D87513;
-}
-
-.estado.en-proceso
-{
-    background-color: #DCEEFF;
-    color: #1769AA;
-}
-
-.estado.completada
-{
-    background-color: #D9F5E3;
-    color: #218A49;
 }
 
 .informacionActividad

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A3 2058161</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Agenda Academica</h1>
+        <p>Organizacion de mis actividades y pendientes escolares</p>
+
+        <nav>
+            <button type="button" id="bInicio">Inicio</button>
+            <button type="button" id="bActividades">Mis actividades</button>
+            <button type="button" id="bAgregar">Agregar actividad</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio">
+            <h2>¡Bienvenido a tu agenda!</h2>
+            <div class="contenedorActividades">
+
+            <div class="totalActividades">
+                <h3>Total de actividades</h3>
+                <p id="actividadesTotales">0</p>
+            </div>
+
+            <div class="totalActividades">
+                <h3>Actividades pendientes</h3>
+                <p id="actividadesPendientes">0</p>
+            </div>
+
+            <div class="totalActividades">
+                <h3>Actividades completadas</h3>
+                <p id="actividadesCompletadas">0</p>
+            </div>
+            </div>      
+        </section>
+
+        <section id="registro" hidden>
+            <h2>Agregar nueva actividad</h2>
+            <form id="formularioActividad">
+                <label for="nombreActividad">Nombre de la actividad</label>
+                <input type="text" id="nombreActividad" placeholder="Ejemplo: Terminar Actividad 3 de Nexus" required>
+
+                <label for="materia">Materia:</label>
+                <input type="text" id="materia" placeholder="Ejemplo:Laboratorio de Programacion Web" required>
+
+                <label for="fechaEntrega">Fecha de entrega:</label>
+                <input type="date" id="fechaEntrega" required>
+
+                <label for="dificultad">Dificultad:</label>
+                <select id="dificultad" required>
+                <option value="">Selecciona la dificultad</option>
+                <option value="Facil">Facil</option>
+                <option value="Media">Media</option>
+                <option value="Dificil">Dificil</option>
+                </select>
+
+                <label for="descripcion">Descripcion</label>
+                <textarea id="descripcion" placeholder="Escribe las instrucciones de la actividad"></textarea>
+
+                <button type="submit">Guardar actividad</button>
+            </form>
+        </section>
+
+        <section id="listaActividades" hidden>
+            <h2>Mis actividades</h2>
+            <div id="contenedorLista">
+                <p id="mensajeVacio">Aun no tienes actividades agregadas.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Agenda Academica 2058161</p>
+    </footer>
+
+    <script src="scrip.js"></script>
+    
+</body>
+</html>

@@ -8,23 +8,25 @@
 body
 {
     font-family: Arial, sans-serif;
-    background-color: #EAF5FF;
+    background-color: #F0F1F3;
     color: #26364a;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /*ENCABEZADO Y MENU*/
 header
 {
-    background-color: #FFFFFF;
+    background-color: #F0F1F3;
     text-align: center;
     padding: 25px 15px;
-    border-bottom: 3px solid #42a5f5; 
+    border-bottom: none; 
 }
 
 header h1
 {
-    color: #1769AA;
+    color: #8F4050;
     font-size: 30px;
     margin-bottom: 8px;
 }
@@ -48,8 +50,8 @@ nav
 nav button
 {
     background-color: #FFFFFF;
-    color: #1769AA;
-    border: 2px solid #42a5f5;
+    color: #8F4050;
+    border: 2px solid #C5A45D;
     padding: 10px 20px;
     border-radius: 8px;
     font-size: 15px;
@@ -59,22 +61,38 @@ nav button
 
 nav button:hover
 {
-    background-color: #42a5f5;
+    background-color: #8F4050;
     color: #FFFFFF;
+    border-color: #8F4050;
 }
+
+nav button.activo
+{
+    background-color: #8F4050;
+    color: #FFFFFF;
+    border-color: #8F4050;
+}
+
 
 /*CONTENIDO*/
 
 main
 {
-    width: 90%;
-    max-width: 1100px;
-    margin: 30px auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 30px 7%;
+    flex: 1;
+}
+
+#inicio, #registro, #listaActividades
+{
+    background-color: transparent;
 }
 
 main h2
 {
-    color: #1769AA;
+    color: #8F4050;
     margin-bottom: 20px;
 }
 
@@ -89,7 +107,7 @@ main h2
 
 .contenedorActividades
 {
-    display:flex;
+    display: flex;
     justify-content: center;
     gap: 20px;
     margin-top: 20px;
@@ -150,7 +168,7 @@ margin-bottom: 12px;
 
 .totalActividades p 
 {
-    color: #1769AA;
+    
     font-size: 32px;
     font-weight: bold;
 }
@@ -169,7 +187,7 @@ margin-bottom: 12px;
     margin: 0 auto;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.0.8);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -195,7 +213,7 @@ margin-bottom: 12px;
 
 #formularioActividad input:focus, #formularioActividad select:focus, #formularioActividad textarea:focus
 {
-    border-color: #42a5f5;
+    border-color: #C5A45D;
 }
 
 #formularioActividad textarea
@@ -206,7 +224,7 @@ margin-bottom: 12px;
 
 #formularioActividad button
 {
-    background-color: #1769AA;
+    background-color: #8F4050;
     color: #FFFFFF;
     border: none;
     padding: 13px;
@@ -220,11 +238,10 @@ margin-bottom: 12px;
 
 #formularioActividad button:hover
 {
-    background-color: #0D4F87;
+    background-color: #be6666;
 }
 
-/*ACTIVIDADES*/
-
+/*ACT LISTA*/
 #listaActividades h2
 {
     text-align: center;
@@ -234,14 +251,135 @@ margin-bottom: 12px;
 {
     display: flex;
     flex-direction: column;
-    gap: 15px;;
+    gap: 20px;
+}
+
+/*AGG DE TAREJTA*/
+.tarjetaActividad
+{
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 5px solid #edf465;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.encabezadoActividad
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.tarjetaActividad h3
+{
+    color: #050c41;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+.etiquetasActividad
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.dificultad, .estado
+{
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/*COLOR DE LAS DIFICULTADES*/
+
+.dificultad.facil
+{
+    background-color: #D9F5E3;
+    color: #218a49;
+}
+
+.dificultad.media
+{
+    background-color: #FFF0D6;
+    color: #D87513;
+}
+
+.dificultad.dificil
+{
+    background-color: #FCE0E0;
+    color: #C03939;
+}
+
+/*COLOR DE LOS ESTADOS*/
+
+.estado.pendiente
+{
+    background-color: #FFF0D6;
+    color: #D87513;
+}
+
+.estado.en-proceso
+{
+    background-color: #DCEEFF;
+    color: #1769AA;
+}
+
+.estado.completada
+{
+    background-color: #D9F5E3;
+    color: #218A49;
+}
+
+.informacionActividad
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.datoActividad
+{
+    background-color: #F0F1F3;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.datoActividad span, .descripcionActividad span
+{
+    display: block;
+    color: #65758B;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 7px;
+    text-transform: uppercase;
+}
+
+.datoActividad p, .descripcionActividad p
+{
+    color: #26364A;
+    font-size: 15px;
+    margin: 0;
+}
+
+.descripcionActividad
+{
+    margin-bottom: 10px;
 }
 
 #mensajeVacio
 {
     text-align: center;
     color: #65758B;
-    background-color: #FFFFFF;
     padding: 25px;
     border-radius: 10px;
 }
@@ -254,8 +392,8 @@ footer
     color: #65758B;
     text-align: center;
     padding: 20px;
-    margin-top: 40px;
-    border-top: 2px solid #0D4F87;
+    margin-top: auto;
+    border-top: none;
 }
 
 /*ADAPTACION A CELULAR*/
@@ -282,10 +420,44 @@ footer
     .contenedorActividades
     {
         flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .totalActividades
+    {
+        width: 100%;
+        min-width: 0;
+    }
+
+    #registro
+    {
+        padding: 15px;
     }
 
     #formularioActividad
     {
         padding: 20px;
+    }
+
+    .tarjetaActividad
+    {
+        padding: 18px;
+    }
+
+    .encabezadoActividad
+    {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .informacionActividad
+    {
+        grid-template-columns: 1fr;
+    }
+
+    .etiquetasActividad
+    {
+        flex-wrap: wrap;
     }
 }

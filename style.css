@@ -291,6 +291,46 @@ margin-bottom: 12px;
     flex-wrap: wrap;
 }
 
+/*BOTON PARA EDITAR Y ELIMINAR*/
+.botonEditar
+{
+    background-color: #63a5dc;
+    color: #FFFFFF;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botonEditar:hover
+{
+    background-color: #1869ab;
+}
+
+.botonEliminar
+{
+    background-color: #FCE0E0;
+    color: #C03939;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botonEliminar:hover
+{
+    background-color: #C03939;
+    color: #FFFFFF;
+}
+
+
+
 .dificultad, .estado
 {
     padding: 7px 14px;

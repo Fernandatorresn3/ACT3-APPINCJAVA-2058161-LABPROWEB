@@ -39,12 +39,19 @@ bActividades.addEventListener("click", () =>
 
 bAgregar.addEventListener("click", () =>
 {
+
     mostrarSeccion(registro, bAgregar);
 });
 
-/*GUARDAR ACTIVIDADES*/
+/*GUARDAR ACTIVIDADES*/ /* AGREGADO DESPUES DE GUARDAR Y RECUPERAR ACTIVIDADES*/
 
-let actividades = [];
+let actividades = JSON.parse(localStorage.getItem("actividades")) || [];
+
+/*GUARDADO DE ACTIVIDADES*/
+const guardarActividades = () =>
+{
+    localStorage.setItem("actividades", JSON.stringify(actividades));
+};
 
 /*ACT EDITAR*/
 let idEditando = null;
@@ -116,6 +123,7 @@ contenedorLista.addEventListener("change", (evento) =>
         if (actividad)
         {
             actividad.estado = nuevoEstado;
+            guardarActividades();
             mostrarActividades();
             actualizarResumen();
         }
@@ -154,6 +162,7 @@ contenedorLista.addEventListener("click", (evento) =>
         if (confirmar)
         {
             actividades = actividades.filter((actividad) => actividad.id !== idActividad);
+            guardarActividades();
             mostrarActividades();
             actualizarResumen();
         }
@@ -202,6 +211,7 @@ if(idEditando !== null)
     actividad.fechaEntrega = fechaEntrega;
     actividad.dificultad = dificultad;
     actividad.descripcion = descripcion;
+    guardarActividades();
 
     alert("¡Tu actividad fue actualizada correctamente!");
     idEditando = null;
@@ -219,6 +229,7 @@ else
         estado: "Pendiente"
     };
     actividades.push(nuevaActividad);
+    guardarActividades();
     alert("¡Tu actividad se agrego correctamente!");
 }
 
@@ -231,3 +242,6 @@ mostrarSeccion(listaActividades, bActividades);
 
 });
 
+/*CARGA DE ACTIVIDADES INICIANDO PAGINA*/
+mostrarActividades();
+actualizarResumen();

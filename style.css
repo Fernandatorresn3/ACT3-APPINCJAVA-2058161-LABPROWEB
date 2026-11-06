@@ -211,6 +211,18 @@ margin-bottom: 12px;
     outline: none;
 }
 
+/* FECHA PARA LA ENTREGA*/
+#fechaEntrega
+{
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
 #formularioActividad input:focus, #formularioActividad select:focus, #formularioActividad textarea:focus
 {
     border-color: #C5A45D;
@@ -493,6 +505,14 @@ footer
     #formularioActividad
     {
         padding: 20px;
+        width: 100%;
+        min-width: 0;
+    }
+
+    #formularioActividad input, #formularioActividad select, #formularioActividad textarea
+    {
+        min-width: 0;
+        max-width: 100%;
     }
 
     .tarjetaActividad
